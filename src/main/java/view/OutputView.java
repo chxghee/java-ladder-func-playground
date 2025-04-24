@@ -6,6 +6,15 @@ import model.Link;
 
 public class OutputView {
 
+    public static void printWidthMessage() {
+        System.out.println("사다리의 넓이는 몇 개인가요?");
+    }
+
+    public static void printHeightMessage() {
+        System.out.println("사다리의 높이는 몇 개인가요?");
+    }
+
+
     public static void printLadder(Ladder ladder) {
         for (HorizontalLine line : ladder.getLines()) {
             printHorizontalLine(line);
