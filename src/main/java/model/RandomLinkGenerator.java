@@ -2,12 +2,12 @@ package model;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class LinkGenerator implements BooleanGenerator {
+public class RandomLinkGenerator implements LinkGenerator {
 
     private final ThreadLocalRandom random = ThreadLocalRandom.current();
 
     @Override
-    public boolean generate() {
-        return random.nextBoolean();
+    public Link generate() {
+        return Link.from(random.nextBoolean());
     }
 }

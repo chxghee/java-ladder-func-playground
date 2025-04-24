@@ -1,5 +1,5 @@
 package model;
 
-public interface BooleanGenerator {
-    boolean generate();
+public interface LinkGenerator {
+    Link generate();
 }

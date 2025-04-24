@@ -3,10 +3,10 @@ package model;
 import java.util.Collections;
 import java.util.List;
 
-public class Line {
+public class HorizontalLine {
     private final List<Link> points;
 
-    public Line(List<Link> points) {
+    public HorizontalLine(List<Link> points) {
         this.points = points;
     }
 
