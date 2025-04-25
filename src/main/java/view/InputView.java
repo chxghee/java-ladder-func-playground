@@ -7,6 +7,14 @@ public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int getInt() {
-        return scanner.nextInt();
+        int inputInt = scanner.nextInt();
+        System.out.println();
+        return inputInt;
+    }
+
+    public static String getString() {
+        String inputString = scanner.next();
+        System.out.println();
+        return inputString;
     }
 }
