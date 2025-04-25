@@ -33,7 +33,7 @@ public class Users {
         return users.stream()
                 .filter(user -> user.getName().equals(findUsername))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("결과를 조회하려는 유저가 존재하지 않습니다!"));
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 존재하지 않습니다!"));
     }
 
     public int size() {

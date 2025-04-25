@@ -80,7 +80,7 @@ public class LadderGameController {
 
     private static List<String> readAndSplitInput() {
         String inputString = InputView.getString();
-        InputValidator.validateUsernamePattern(inputString);
+        InputValidator.validateInputStringPattern(inputString);
         return StringSplitter.splitByComma(inputString);
     }
 

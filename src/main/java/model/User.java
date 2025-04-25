@@ -21,7 +21,7 @@ public class User {
 
     private static void validateUsernameLength(String name) {
         if (name.length() > MAX_USERNAME_LENGTH) {
-            throw new IllegalArgumentException("유저 이름은 최대" + MAX_USERNAME_LENGTH + "자 입니다!");
+            throw new IllegalArgumentException("유저 이름은 최대 " + MAX_USERNAME_LENGTH + "자 입니다!");
         }
     }
 

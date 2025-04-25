@@ -45,7 +45,7 @@ public class OutputView {
     public static void printAllResults(LadderGameResult ladderGameResult) {
         System.out.println("실행결과");
         ladderGameResult.getGameResults().forEach((user, prize) ->
-            System.out.println(user.getName() + ": " + prize.getPrizeName())
+            System.out.println(user.getName() + " : " + prize.getPrizeName())
         );
         System.out.println();
     }
@@ -73,6 +73,4 @@ public class OutputView {
             System.out.print("     ");
         }
     }
-
-
 }

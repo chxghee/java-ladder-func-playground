@@ -3,15 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineGenerator {        // 가로 기준으로 연결 여부 라인을 생성
+public class LineGenerator {
 
-    public static HorizontalLine generateHorizontalLine(int width, LinkGenerator generate) {
-
+    public static HorizontalLine generateHorizontalLine(int width, LinkGenerator generator) {
         Link prev = Link.UNLINKED;
         List<Link> link = new ArrayList<>();
         
         for (int i = 0; i < width - 1; i++) {
-            prev = addLink(prev, generate.generate(), link);
+            prev = addLink(prev, generator.generate(), link);
         }
         link.add(Link.UNLINKED);
         return new HorizontalLine(link);
@@ -24,5 +23,4 @@ public class LineGenerator {        // 가로 기준으로 연결 여부 라인�
         link.add(now);
         return now;
     }
-
 }
