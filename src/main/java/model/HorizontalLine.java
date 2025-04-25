@@ -1,19 +1,21 @@
 package model;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
 
 public class HorizontalLine {
 
     private final List<Link> points;
+    private final EnumSet<MovingDirection> movingDirections;
 
     public HorizontalLine(List<Link> points) {
         this.points = points;
+        this.movingDirections = EnumSet.allOf(MovingDirection.class);
     }
 
     public int move(int position) {
-        return Arrays.stream(MovingDirection.values())
+        return movingDirections.stream()
                 .filter(movingDirection -> movingDirection.canMove(position, this))
                 .findFirst()
                 .map(movingDirection -> movingDirection.move(position))
