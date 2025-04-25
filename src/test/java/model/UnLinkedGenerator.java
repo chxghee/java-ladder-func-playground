@@ -1,4 +1,8 @@
 package model;
 
-public class UnLinkGenerator {
+public class UnLinkedGenerator implements LinkGenerator{
+    @Override
+    public Link generate() {
+        return Link.from(false);
+    }
 }
