@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Ladder {
@@ -13,6 +12,14 @@ public class Ladder {
 
     public static Ladder of(int height, int width, LinkGenerator generator) {
         return new Ladder(getHorizontalRandomLines(height, width, generator));
+    }
+
+    public int ride(int number) {
+        int position = number;
+        for (HorizontalLine line : lines) {
+            position = line.move(position);
+        }
+        return position;
     }
 
     private static List<HorizontalLine> getHorizontalRandomLines(int height, int width, LinkGenerator generator) {
