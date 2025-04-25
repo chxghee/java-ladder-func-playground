@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,6 +31,6 @@ public class LadderGameResult {
     }
 
     public Map<User, Prize> getGameResults() {
-        return gameResults;
+        return Collections.unmodifiableMap(gameResults);
     }
 }

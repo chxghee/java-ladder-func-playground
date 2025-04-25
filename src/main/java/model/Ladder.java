@@ -1,7 +1,8 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Ladder {
 
@@ -12,7 +13,13 @@ public class Ladder {
     }
 
     public static Ladder of(int height, int participantCount, LinkGenerator generator) {
-        return new Ladder(getHorizontalRandomLines(height, participantCount, generator));
+        return new Ladder(getRandomLines(height, participantCount, generator));
+    }
+
+    private static List<HorizontalLine> getRandomLines(int height, int participantCount, LinkGenerator generator) {
+        return IntStream.range(0, height)
+                .mapToObj(position -> LineGenerator.generateHorizontalLine(participantCount, generator))
+                .toList();
     }
 
     public Prize ride(User user, Prizes prizes) {
@@ -23,16 +30,7 @@ public class Ladder {
         return prizes.getPrizeAtPosition(position);
     }
 
-    private static List<HorizontalLine> getHorizontalRandomLines(int height, int width, LinkGenerator generator) {
-        List<HorizontalLine> lines = new ArrayList<>();
-        for (int i = 0; i < height; i++) {
-            HorizontalLine horizontalLine = LineGenerator.generateHorizontalLine(width, generator);
-            lines.add(horizontalLine);
-        }
-        return lines;
-    }
-
     public List<HorizontalLine> getLines() {
-        return lines;
+        return Collections.unmodifiableList(lines);
     }
 }

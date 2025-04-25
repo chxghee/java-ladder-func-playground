@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -38,6 +39,6 @@ public class Prizes {
     }
 
     public List<Prize> getPrizes() {
-        return prizes;
+        return Collections.unmodifiableList(prizes);
     }
 }
