@@ -6,13 +6,13 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int getInt() {
+    public int getInt() {
         int inputInt = scanner.nextInt();
         System.out.println();
         return inputInt;
     }
 
-    public static String getString() {
+    public String getString() {
         String inputString = scanner.next();
         System.out.println();
         return inputString;

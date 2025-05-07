@@ -19,7 +19,10 @@ import static utils.Constants.FINAL_QUERY_KEYWORD;
 public class LadderGameController {
 
     private final LinkGenerator linkGenerator;
-
+    private final InputValidator inputValidator = new InputValidator();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    
     public LadderGameController(LinkGenerator linkGenerator) {
         this.linkGenerator = linkGenerator;
     }
@@ -30,67 +33,67 @@ public class LadderGameController {
         int height = getHeight();
 
         Ladder ladder = Ladder.of(height, users.size(), linkGenerator);
-        OutputView.printLadder(ladder, users, prizes);
+        outputView.printLadder(ladder, users, prizes);
 
         LadderGameResult ladderGameResult = LadderGameResult.of(users, prizes, ladder);
         handleUserResultQuery(ladderGameResult, users);
     }
 
-    private static void handleUserResultQuery(LadderGameResult ladderGameResult, Users users) {
+    private void handleUserResultQuery(LadderGameResult ladderGameResult, Users users) {
 
         Optional<User> findUser = getFindUsername(users);
 
         if (findUser.isEmpty()) {
-            OutputView.printAllResults(ladderGameResult);
+            outputView.printAllResults(ladderGameResult);
             return;
         }
 
-        OutputView.printPrize(ladderGameResult.findByUser(findUser.get()));
+        outputView.printPrize(ladderGameResult.findByUser(findUser.get()));
         handleUserResultQuery(ladderGameResult, users);
     }
 
-    private static Optional<User> getFindUsername(Users users) {
-        OutputView.printQueryInputMessage();
-        String findUsername = InputView.getString();
+    private Optional<User> getFindUsername(Users users) {
+        outputView.printQueryInputMessage();
+        String findUsername = inputView.getString();
         if (findUsername.equals(FINAL_QUERY_KEYWORD)) {
             return Optional.empty();
         }
         try {
             return Optional.of(users.findByUsername(findUsername));
         } catch (Exception e) {
-            OutputView.printErrorMessage(e.getMessage());
+            outputView.printErrorMessage(e.getMessage());
             return getFindUsername(users);
         }
     }
 
-    private static Users getUsers() {
-        OutputView.printUsernameInputMessage();
+    private Users getUsers() {
+        outputView.printUsernameInputMessage();
         try {
             return Users.from(readAndSplitInput());
         } catch (Exception e) {
-            OutputView.printErrorMessage(e.getMessage());
+            outputView.printErrorMessage(e.getMessage());
             return getUsers();
         }
     }
 
-    private static Prizes getPrizes(int participantCount) {
-        OutputView.printPrizeInputMessage();
+    private Prizes getPrizes(int participantCount) {
+        outputView.printPrizeInputMessage();
         try {
             return Prizes.of(readAndSplitInput(), participantCount);
         } catch (Exception e) {
-            OutputView.printErrorMessage(e.getMessage());
+            outputView.printErrorMessage(e.getMessage());
             return getPrizes(participantCount);
         }
     }
 
-    private static List<String> readAndSplitInput() {
-        String inputString = InputView.getString();
-        InputValidator.validateInputStringPattern(inputString);
+    private List<String> readAndSplitInput() {
+        String inputString = inputView.getString();
+        inputValidator.validateInputStringPattern(inputString);
         return StringSplitter.splitByComma(inputString);
     }
 
-    private static int getHeight() {
-        OutputView.printHeightInputMessage();
-        return InputView.getInt();
+    private int getHeight() {
+        outputView.printHeightInputMessage();
+        return inputView.getInt();
     }
 }
