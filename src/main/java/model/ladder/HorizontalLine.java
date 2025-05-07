@@ -1,4 +1,6 @@
-package model;
+package model.ladder;
+
+import model.MovingDirection;
 
 import java.util.Collections;
 import java.util.EnumSet;

@@ -1,5 +1,11 @@
 package model;
 
+import model.Prize.Prize;
+import model.Prize.Prizes;
+import model.ladder.Ladder;
+import model.user.User;
+import model.user.Users;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
@@ -9,7 +15,7 @@ public class LadderGameResult {
 
     private final Map<User, Prize> gameResults;
 
-    public LadderGameResult(Map<User, Prize> gameResults) {
+    private LadderGameResult(Map<User, Prize> gameResults) {
         this.gameResults = gameResults;
     }
 

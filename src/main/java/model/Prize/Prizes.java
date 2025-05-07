@@ -1,4 +1,4 @@
-package model;
+package model.Prize;
 
 import java.util.Collections;
 import java.util.List;

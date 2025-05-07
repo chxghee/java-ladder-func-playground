@@ -1,4 +1,4 @@
-package model;
+package model.user;
 
 import static utils.Constants.FINAL_QUERY_KEYWORD;
 import static utils.Constants.MAX_USERNAME_LENGTH;

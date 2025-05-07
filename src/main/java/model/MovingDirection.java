@@ -1,5 +1,8 @@
 package model;
 
+import model.ladder.HorizontalLine;
+import model.ladder.Link;
+
 public enum MovingDirection {
 
     RIGHT(1, (index, line) -> index < line.size() && line.getLink(index) == Link.LINKED),

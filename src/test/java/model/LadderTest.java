@@ -1,5 +1,9 @@
 package model;
 
+import model.Prize.Prize;
+import model.Prize.Prizes;
+import model.ladder.Ladder;
+import model.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

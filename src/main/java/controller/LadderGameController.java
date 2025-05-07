@@ -1,6 +1,11 @@
 package controller;
 
 import model.*;
+import model.Prize.Prizes;
+import model.ladder.Ladder;
+import model.ladder.LinkGenerator;
+import model.user.User;
+import model.user.Users;
 import utils.StringSplitter;
 import view.InputValidator;
 import view.InputView;

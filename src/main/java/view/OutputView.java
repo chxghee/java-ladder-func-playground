@@ -1,6 +1,13 @@
 package view;
 
 import model.*;
+import model.Prize.Prize;
+import model.Prize.Prizes;
+import model.ladder.HorizontalLine;
+import model.ladder.Ladder;
+import model.ladder.Link;
+import model.user.User;
+import model.user.Users;
 
 import java.util.List;
 import java.util.function.Function;

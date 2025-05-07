@@ -1,5 +1,7 @@
 package model;
 
+import model.ladder.HorizontalLine;
+import model.ladder.Link;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

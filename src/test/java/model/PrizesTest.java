@@ -1,6 +1,6 @@
 package model;
 
-import org.assertj.core.api.Assertions;
+import model.Prize.Prizes;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -1,5 +1,6 @@
 package model;
 
+import model.user.User;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;

@@ -1,4 +1,8 @@
-package model;
+package model.ladder;
+
+import model.Prize.Prize;
+import model.Prize.Prizes;
+import model.user.User;
 
 import java.util.Collections;
 import java.util.List;

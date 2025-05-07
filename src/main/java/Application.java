@@ -1,5 +1,5 @@
 import controller.LadderGameController;
-import model.RandomLinkGenerator;
+import model.ladder.RandomLinkGenerator;
 
 public class Application {
     public static void main(String[] args) {

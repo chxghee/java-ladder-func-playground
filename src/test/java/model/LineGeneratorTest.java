@@ -1,8 +1,13 @@
 package model;
 
+import model.ladder.HorizontalLine;
+import model.ladder.LineGenerator;
+import model.ladder.Link;
+import model.ladder.LinkGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -25,11 +30,11 @@ class LineGeneratorTest {
         HorizontalLine generatedLine = LineGenerator.generateHorizontalLine(width, linkedGenerator);
 
         List<Link> links = generatedLine.getPoints();
-        for (int i = 0; i < links.size() - 1; i++) {
-            Link current = links.get(i);
-            Link next = links.get(i + 1);
-            assertThat(current.isLinked() && next.isLinked()).isFalse();
-        }
+        boolean result = IntStream.range(0, links.size() - 1)
+                .anyMatch(i -> links.get(i).isLinked() && links.get(i + 1).isLinked());
+
+
+        assertThat(result).isFalse();
     }
 
     @Test

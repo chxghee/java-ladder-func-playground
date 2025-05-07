@@ -1,5 +1,6 @@
 package model;
 
+import model.user.Users;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
